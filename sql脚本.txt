@@ -1,0 +1,14 @@
+create table photo_wall.user
+(
+    id         int auto_increment
+        primary key,
+    account    varchar(128)      null,
+    password   varchar(128)      null,
+    avatar_url varchar(1024)     null comment '头像地址',
+    name       varchar(128)      null,
+    sex        tinyint default 0 not null comment '性别：0男1女',
+    email      varchar(128)      null,
+    constraint user_id_uindex
+        unique (id)
+);
+
