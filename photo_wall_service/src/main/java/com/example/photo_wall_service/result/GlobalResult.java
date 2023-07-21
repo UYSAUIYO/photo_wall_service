@@ -35,58 +35,58 @@ public class GlobalResult {
     private String ok;
 
 
-    public static GlobalResult build(Integer status, String msg, Object data) {
-        return new GlobalResult(status, msg, data);
+    public static GlobalResult build (Integer status, String msg, Object data) {
+        return new GlobalResult (status, msg, data);
     }
 
-    public static GlobalResult ok(Object data) {
-        return new GlobalResult(data);
+    public static GlobalResult ok (Object data) {
+        return new GlobalResult (data);
     }
 
-    public static GlobalResult ok(Object data, String msg) {
-        return new GlobalResult(data, msg);
+    public static GlobalResult ok (Object data, String msg) {
+        return new GlobalResult (data, msg);
     }
 
-    public static GlobalResult ok() {
-        return new GlobalResult(null);
+    public static GlobalResult ok () {
+        return new GlobalResult (null);
     }
 
-    public static GlobalResult errorMsg(String msg) {
-        return new GlobalResult(500, msg, null);
+    public static GlobalResult errorMsg (String msg) {
+        return new GlobalResult (500, msg, null);
     }
 
-    public static GlobalResult errorMap(Object data) {
-        return new GlobalResult(501, "error", data);
+    public static GlobalResult errorMap (Object data) {
+        return new GlobalResult (501, "error", data);
     }
 
-    public static GlobalResult errorTokenMsg(String msg) {
-        return new GlobalResult(502, msg, null);
+    public static GlobalResult errorTokenMsg (String msg) {
+        return new GlobalResult (502, msg, null);
     }
 
-    public static GlobalResult errorException(String msg) {
-        return new GlobalResult(555, msg, null);
+    public static GlobalResult errorException (String msg) {
+        return new GlobalResult (555, msg, null);
     }
 
 
-    public GlobalResult(Integer status, String msg, Object data) {
+    public GlobalResult (Integer status, String msg, Object data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
 
-    public GlobalResult(Object data) {
+    public GlobalResult (Object data) {
         this.status = 200;
         this.msg = "OK";
         this.data = data;
     }
 
-    public GlobalResult(Object data, String msg) {
+    public GlobalResult (Object data, String msg) {
         this.status = 200;
         this.msg = msg;
         this.data = data;
     }
 
-    public Boolean isOK() {
+    public Boolean isOK () {
         return this.status == 200;
     }
 

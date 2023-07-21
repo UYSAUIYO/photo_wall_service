@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface PictureMapper extends BaseMapper<PhotoWall> {
-    boolean deletePhotoWall(String uuid);
+    boolean deletePhotoWall (String uuid);
 }

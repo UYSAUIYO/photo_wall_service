@@ -23,25 +23,25 @@ public class SellerAuthorizeAspect {
     private StringRedisTemplate redisTemplate;
 
     @Pointcut("execution(public * com.example.photo_wall_service.controller.UserController*.*(..))")
-    public void verify() {
+    public void verify () {
     }
 
     @Before("verify()")
-    public void doverify() throws UserException {
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
+    public void doverify () throws UserException {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes ();
+        HttpServletRequest request = attributes.getRequest ();
         //从http请求头中拿到token
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader ("Authorization");
         if (token == null) {
-            throw new UserException("token为空");
+            throw new UserException ("token为空");
 
         }
-        String tokenValue = redisTemplate.opsForValue().get(String.format(RedisConstant.TOKEN_PREFIX, token));
-        if (StringUtils.isEmpty(tokenValue)) {
-            throw new UserException("该token不存在");
+        String tokenValue = redisTemplate.opsForValue ().get (String.format (RedisConstant.TOKEN_PREFIX, token));
+        if (StringUtils.isEmpty (tokenValue)) {
+            throw new UserException ("该token不存在");
 
         }
-        redisTemplate.opsForValue().set(String.format(RedisConstant.TOKEN_PREFIX, token), tokenValue, RedisConstant.EXPIRE, TimeUnit.SECONDS);
+        redisTemplate.opsForValue ().set (String.format (RedisConstant.TOKEN_PREFIX, token), tokenValue, RedisConstant.EXPIRE, TimeUnit.SECONDS);
     }
 }
 

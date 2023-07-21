@@ -12,8 +12,8 @@ public class SellExceptionHandler {
     //拦截登陆异常
     @ExceptionHandler(value = UserException.class)
     @ResponseBody
-    public GlobalResult handleLoginExcpetion() {
-        return GlobalResult.errorMsg("未登录或登录时间过期");
+    public GlobalResult handleLoginExcpetion () {
+        return GlobalResult.errorMsg ("未登录或登录时间过期");
     }
 }
 

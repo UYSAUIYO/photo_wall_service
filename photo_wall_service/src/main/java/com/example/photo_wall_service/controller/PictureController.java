@@ -9,33 +9,34 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/pictrueDO")
 public class PictureController {
     @Autowired
     private PictureService pictureService;
 
     @PostMapping("/insertPhotoWall")
-    public GlobalResult insertPhotoWall(@RequestBody PhotoRequset photoRequest) throws IOException {
-        return pictureService.insertPhotoWall(photoRequest);
+    public GlobalResult insertPhotoWall (@RequestBody PhotoRequset photoRequest) throws IOException {
+        return pictureService.insertPhotoWall (photoRequest);
     }
 
     @DeleteMapping("/deletePhotoWall")
-    public GlobalResult deletePhotoWall(String uuid) {
-        return pictureService.deletePhotoWall(uuid);
+    public GlobalResult deletePhotoWall (String uuid) {
+        return pictureService.deletePhotoWall (uuid);
     }
 
     @PutMapping("/updatePhotoWall")
-    public GlobalResult updatePhotoWall(@RequestBody PhotoRequset photoRequest) {
-        return pictureService.updatePhotoWall(photoRequest);
+    public GlobalResult updatePhotoWall (@RequestBody PhotoRequset photoRequest) {
+        return pictureService.updatePhotoWall (photoRequest);
     }
 
     @GetMapping("/photoWallList")
-    public GlobalResult photoWallList(Integer pageNum, Integer pageSize, String name, Integer world, String author) {
-        return pictureService.photoWallList(pageNum, pageSize, name, world, author);
+    public GlobalResult photoWallList (Integer pageNum, Integer pageSize, String name, Integer world, String author) {
+        return pictureService.photoWallList (pageNum, pageSize, name, world, author);
     }
 
     @GetMapping("/photoWall")
-    public GlobalResult photoWall(String uuid) {
-        return pictureService.photoWall(uuid);
+    public GlobalResult photoWall (String uuid) {
+        return pictureService.photoWall (uuid);
     }
 }

@@ -12,8 +12,6 @@ public class UploadConfig {
     public static String STORAGE_ADDRESS = System.getProperty ("user.dir") + "\\images\\";
 
 
-
-
     //压缩图片的长宽
     public static int WIDTH = 800;
     public static int HIGHT = 600;

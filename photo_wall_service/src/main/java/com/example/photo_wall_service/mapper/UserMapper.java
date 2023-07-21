@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 
-    boolean UpdatePassword(String account, String newPassword);
+    boolean UpdatePassword (String account, String newPassword);
 }

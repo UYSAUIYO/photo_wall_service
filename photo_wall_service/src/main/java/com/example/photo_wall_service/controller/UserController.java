@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/userDO")
 public class UserController {
 
@@ -23,24 +24,24 @@ public class UserController {
      * @return
      */
     @GetMapping("/userlist")
-    public GlobalResult UserList(@RequestParam String name, @RequestParam String email, @RequestParam String account) {
-        return userService.UserList(name, email, account);
+    public GlobalResult UserList (@RequestParam String name, @RequestParam String email, @RequestParam String account) {
+        return userService.UserList (name, email, account);
     }
 
     @PostMapping("/updateuser")
-    public GlobalResult UpdateUserInfo(@RequestBody User user) {
+    public GlobalResult UpdateUserInfo (@RequestBody User user) {
         if (user == null) {
-            return GlobalResult.errorMsg("你丫妹传参呐!");
+            return GlobalResult.errorMsg ("你丫妹传参呐!");
         }
-        return userService.UpdateUserInfo(user);
+        return userService.UpdateUserInfo (user);
     }
 
     @PostMapping("/updatepassword")
-    public GlobalResult UpdatePassword(@RequestParam String account, @RequestParam String password, @RequestParam String newPassword) {
-        if (StringUtils.isAnyBlank(account, password, newPassword)) {
-            return GlobalResult.errorMsg("你丫传的参数有空值!");
+    public GlobalResult UpdatePassword (@RequestParam String account, @RequestParam String password, @RequestParam String newPassword) {
+        if (StringUtils.isAnyBlank (account, password, newPassword)) {
+            return GlobalResult.errorMsg ("你丫传的参数有空值!");
         }
-        return userService.UpdatePassword(account, password, newPassword);
+        return userService.UpdatePassword (account, password, newPassword);
     }
 
 }

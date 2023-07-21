@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/commentDO")
 public class CommentController {
     @Autowired
@@ -21,12 +22,12 @@ public class CommentController {
      * @return
      */
     @PostMapping("/publishComment")
-    public GlobalResult publishComment(@RequestBody Comment comment) throws IOException {
-        String content = comment.getContent();
-        String email = comment.getEmail();
-        String nickname = comment.getNickname();
-        String photoId = comment.getPhotoId();
-        return commentService.publishComment(content, email, nickname, photoId);
+    public GlobalResult publishComment (@RequestBody Comment comment) throws IOException {
+        String content = comment.getContent ();
+        String email = comment.getEmail ();
+        String nickname = comment.getNickname ();
+        String photoId = comment.getPhotoId ();
+        return commentService.publishComment (content, email, nickname, photoId);
     }
 
 
@@ -37,8 +38,8 @@ public class CommentController {
      * @return
      */
     @GetMapping("/photoCommentList")
-    public GlobalResult photoCommentList(@RequestParam String photoId, @RequestParam Integer pageSize, @RequestParam Integer pageNum) {
-        return commentService.photoCommentList(photoId, pageSize, pageNum);
+    public GlobalResult photoCommentList (@RequestParam String photoId, @RequestParam Integer pageSize, @RequestParam Integer pageNum) {
+        return commentService.photoCommentList (photoId, pageSize, pageNum);
     }
 
     /**
@@ -48,8 +49,8 @@ public class CommentController {
      * @return
      */
     @DeleteMapping("/deleteComment")
-    public GlobalResult deleteComment(@RequestParam String uuid) {
-        return commentService.deleteComment(uuid);
+    public GlobalResult deleteComment (@RequestParam String uuid) {
+        return commentService.deleteComment (uuid);
     }
 
     /**
@@ -59,7 +60,7 @@ public class CommentController {
      * @return
      */
     @DeleteMapping("/deletePhotoComment")
-    public GlobalResult deletePhotoComment(@RequestParam String photoId) {
-        return commentService.deletePhotoComment(photoId);
+    public GlobalResult deletePhotoComment (@RequestParam String photoId) {
+        return commentService.deletePhotoComment (photoId);
     }
 }

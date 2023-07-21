@@ -11,15 +11,15 @@ import com.example.photo_wall_service.result.GlobalResult;
  * @createDate 2023-07-18 13:01:09
  */
 public interface UserService extends IService<User> {
-    GlobalResult Register(String account, String password, String checkPassword);
+    GlobalResult Register (String account, String password, String checkPassword);
 
-    GlobalResult Login(String account, String password);
+    GlobalResult Login (String account, String password);
 
-    GlobalResult UserList(String name, String email, String account);
+    GlobalResult UserList (String name, String email, String account);
 
-    GlobalResult UpdateUserInfo(User user);
+    GlobalResult UpdateUserInfo (User user);
 
-    GlobalResult UpdatePassword(String account, String password, String newPassword);
+    GlobalResult UpdatePassword (String account, String password, String newPassword);
 
 
     /**
@@ -28,7 +28,7 @@ public interface UserService extends IService<User> {
      * @param originUser
      * @return
      */
-    UserListResponse getSafetyUser(User originUser);
+    UserListResponse getSafetyUser (User originUser);
 
 
 }

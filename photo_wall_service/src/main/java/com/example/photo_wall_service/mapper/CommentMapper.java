@@ -13,9 +13,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CommentMapper extends BaseMapper<Comment> {
 
-    boolean deleteByUuid(String uuid);
+    boolean deleteByUuid (String uuid);
 
-    boolean deleteByPhotoId(String photoId);
+    boolean deleteByPhotoId (String photoId);
 
 
 }

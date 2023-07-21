@@ -12,10 +12,10 @@ import static com.example.photo_wall_service.config.UploadConfig.STORAGE_ADDRESS
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
     @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    public void addResourceHandlers (ResourceHandlerRegistry registry) {
         // 静态资源映射
-        registry.addResourceHandler("/img/**")     // 映射路径, 其中的img可以随便改
-                .addResourceLocations("file:" + STORAGE_ADDRESS); // 服务器中存放图片的路径
+        registry.addResourceHandler ("/img/**")     // 映射路径, 其中的img可以随便改
+                .addResourceLocations ("file:" + STORAGE_ADDRESS); // 服务器中存放图片的路径
     }
 
 }
